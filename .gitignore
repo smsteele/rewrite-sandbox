@@ -1,0 +1,7 @@
+build/
+.gradle/
+gradle.properties
+.java-version
+out/
+rewrite-java/src/main/gen/
+.idea/
