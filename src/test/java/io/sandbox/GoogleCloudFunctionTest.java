@@ -12,6 +12,7 @@ import static org.mockito.Mockito.*;
 
 class GoogleCloudFunctionTest {
 
+    // Sam, this is why you're waiting for JEP-355
     private final String beforeUUIDAdded = "package org.scratchpad;\n" +
             "\n" +
             "import lombok.AccessLevel;\n" +

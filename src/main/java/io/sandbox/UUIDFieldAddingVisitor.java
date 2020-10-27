@@ -11,6 +11,9 @@ import java.util.List;
 import static org.openrewrite.Formatting.EMPTY;
 import static org.openrewrite.Formatting.format;
 
+/**
+ * A {@link JavaIsoRefactorVisitor} that adds a {@link java.util.UUID} field and its getter to any class visited.
+ */
 public class UUIDFieldAddingVisitor extends JavaIsoRefactorVisitor {
     @Override
     public J.ClassDecl visitClassDecl(J.ClassDecl classDecl) {
