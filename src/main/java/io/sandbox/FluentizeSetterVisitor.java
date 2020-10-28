@@ -54,8 +54,8 @@ public class FluentizeSetterVisitor extends JavaIsoRefactorVisitor {
                 J.Block<Statement> body = methodDecl.getBody();
                 List<Statement> statements = new ArrayList<>(body.getStatements());
                 // get name returns Iden (which is Identity?)
-                Expression returnThis = J.Ident.build(Tree.randomId(), "this", this.classDecl.getName().getType(), Formatting.EMPTY);
-                statements.add(new J.Return(Tree.randomId(), returnThis, Formatting.EMPTY));
+                Expression returnThis = J.Ident.build(Tree.randomId(), "this", this.classDecl.getName().getType(),Formatting.format(" "));
+                statements.add(new J.Return(Tree.randomId(), returnThis, Formatting.format("\n")));
                 md = md.withBody(body.withStatements(statements));
                 andThen(new AutoFormat(md));
                 return md;

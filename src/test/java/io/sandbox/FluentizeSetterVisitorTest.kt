@@ -13,24 +13,11 @@ class FluentizeSetterVisitorTest : RefactorVisitorTestForParser<J.CompilationUni
     override val visitors: Iterable<RefactorVisitor<*>> = listOf(FluentizeSetterVisitor())
 
     @Test
-    fun test() {
-        var clarse: String =
-                """
-                    class A {
-                        A foo() {
-                           return this;
-                        }
-                    }
-                """.trimIndent()
-        val parse = parser.parse(clarse)
-        parse.toString();
-    }
-
-    @Test
     fun testVisitFluentizingSetterField() = assertRefactored(
             before = """
                 class Foo {
                     String bar;
+                    
                     void setBar(String value) {
                         bar = value;
                     }
@@ -39,6 +26,7 @@ class FluentizeSetterVisitorTest : RefactorVisitorTestForParser<J.CompilationUni
             after = """
                 class Foo {
                     String bar;
+                    
                     Foo setBar(String value) {
                         bar = value;
                         return this;
